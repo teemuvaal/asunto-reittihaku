@@ -4,7 +4,7 @@ import { useState } from 'react';
 import TravelForm from './components/TravelForm';
 import TravelResults from './components/TravelResults';
 import { getTravelInfo } from './actions';
-import Footer from './components/Footer';
+import Header from './components/Header';
 
 export default function Home() {
   const [travelInfo, setTravelInfo] = useState([]);
@@ -18,7 +18,8 @@ export default function Home() {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen p-4 flex-col">
+    <div className="flex justify-center items-center min-h-screen p-4 flex-col gap-4">
+      <Header />
       <div className="w-full max-w-4xl">
         <TravelForm onSubmit={handleSubmit} />
         {isLoading ? (
@@ -26,8 +27,7 @@ export default function Home() {
         ) : (
           <TravelResults travelInfo={travelInfo} />
         )}
-      </div>
-      <Footer />
+      </div>      
     </div>
   );
 }

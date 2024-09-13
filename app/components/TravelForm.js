@@ -4,6 +4,8 @@ import { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator"
+
 
 export default function TravelForm({ onSubmit }) {
   const [apartment, setApartment] = useState('');
@@ -42,7 +44,8 @@ export default function TravelForm({ onSubmit }) {
             onChange={(e) => setApartment(e.target.value)}
             required
           />
-          <p className="text-sm text-gray-700">Halutut kohteet:</p>
+          <Separator />
+          <p className="text-sm text-gray-700">Halutut kohteet (max 5):</p>
           {destinations.map((dest, index) => (
             <Input
               key={index}
